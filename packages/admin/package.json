@@ -1,0 +1,50 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Fahad Ahmed",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@testing-library/react": "^11.2.2",
+    "@webpack-cli/serve": "^1.1.0",
+    "babel-loader": "^8.2.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "jest": "^26.6.3",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.4.4",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@types/jest": "^26.0.19",
+    "@types/node": "^14.14.14",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.6",
+    "firebase": "^8.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "start": "webpack serve",
+    "test": "jest --verbose --config ./jest.config.js",
+    "test-coverage": "jest --coverage --config ./jest.config.js",
+    "clean": "rimraf ./public/*",
+    "build": "npm run clean && NODE_ENV=production webpack",
+    "deploy-dev": "npm install -g firebase-tools && firebase deploy --token=$FIREBASE_TOKEN --project $FIREBASE_PROJECT_DEV --non-interactive",
+    "deploy-prod": "npm install -g firebase-tools && firebase deploy --token=$FIREBASE_TOKEN --project $FIREBASE_PROJECT_PROD --non-interactive"
+  }
+}

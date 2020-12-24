@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fhdamd-web"
+  },
+  "targets": {
+    "fhdamd-web": {
+      "hosting": {
+        "admin": [
+          "admin-fhdamd-web"
+        ]
+      }
+    }
+  }
+}
