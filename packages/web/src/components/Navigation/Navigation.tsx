@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from '@emotion/styled';
 
+import {AppContext} from '../AppProvider/AppContext';
+
 function Navigation(): JSX.Element {
+
+  const {theme, toggleTheme} = useContext(AppContext);
 
   const Nav = styled.div`
     display: flex;
     height: 30px;
     padding: 20px 60px;
     justify-content: space-between;
+    background: ${theme === 'light' ? "#FFFFFF" : "#122632"};
+    color: ${theme === 'light' ? "#000000" : "#EC7D8A"}
   `;
 
   const NavTitle = styled.div`
@@ -23,7 +29,7 @@ function Navigation(): JSX.Element {
     margin-left: 20px;
     margin-right: 20px;
 
-    &:first-child {
+    &:first-of-type {
       margin-left: 0px;
     }
 
@@ -31,12 +37,16 @@ function Navigation(): JSX.Element {
       margin-right: 0px;
     }
   `;
+
+  
+
   return(
     <Nav>
       <NavTitle>
         FAHAD AHMED
       </NavTitle>
       <div>
+        <button onClick={toggleTheme}>Toggle Theme</button>
         <NavItem>Services</NavItem>
         <NavItem>Blog</NavItem>
         <NavItem>Contact</NavItem>

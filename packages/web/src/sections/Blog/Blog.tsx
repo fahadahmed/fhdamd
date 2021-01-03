@@ -1,14 +1,19 @@
-import React from  'react';
+import React, {useContext} from  'react';
 import styled from '@emotion/styled';
 
 import SectionHeading from '../../components/SectionHeading/SectionHeading';
 import SectionSubHeading from '../../components/SectionSubHeading/SectionSubHeading';
 import SectionParagraph from '../../components/SectionParagraph/SectionParagraph';
 
+import {AppContext} from '../../components/AppProvider/AppContext';
+
 function Blog(): JSX.Element {
+
+  const {theme} = useContext(AppContext);
   const Container = styled.div`
     display: grid;
     padding: 60px;
+    background: ${theme === 'light' ? "#FFFFFF" : "#122632"};
     @media (max-width: 576px) {
       padding: 20px;
     }

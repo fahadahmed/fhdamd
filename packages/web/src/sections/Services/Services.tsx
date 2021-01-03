@@ -1,18 +1,22 @@
-import React from  'react';
+import React, {useContext} from  'react';
 import styled from '@emotion/styled';
 
 import SectionHeading from '../../components/SectionHeading/SectionHeading';
 import SectionSubHeading from '../../components/SectionSubHeading/SectionSubHeading';
 import SectionParagraph from '../../components/SectionParagraph/SectionParagraph';
 
+import {AppContext} from '../../components/AppProvider/AppContext';
+
 import SoftwareIcon from '../../images/SoftwareIcon';
 import DesignIcon from '../../images/DesignIcon';
 
 function Services(): JSX.Element {
+  const {theme} = useContext(AppContext);
   const Container = styled.div`
     display: grid;
     background: #F9F9F7;
     padding: 60px;
+    background: ${theme === 'light' ? "#F9F9F7" : "#172E3F"};
     @media (max-width: 576px) {
       padding: 20px;
     }

@@ -8,14 +8,18 @@ import {
 
 import Home from './Home/Home';
 
+import {AppProvider} from '../components/AppProvider/AppContext';
+
 function Routes(): JSX.Element {
   return(
-    <Router>
-      <Switch>
-        <Route path="/home" component={Home} />
-        <Redirect from="/" to="/home" />
-      </Switch>
-    </Router>
+    <AppProvider>
+      <Router>
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Redirect from="/" to="/home" />
+        </Switch>
+      </Router>
+    </AppProvider>
   )
 }
 

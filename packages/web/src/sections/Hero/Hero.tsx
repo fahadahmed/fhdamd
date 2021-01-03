@@ -1,13 +1,16 @@
-import { defaultCipherList } from 'constants';
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from '@emotion/styled';
+
+import {AppContext} from '../../components/AppProvider/AppContext';
 
 function Hero(): JSX.Element {
 
+  const {theme} = useContext(AppContext);
+
   const Container = styled.div`
     display: grid;
-    min-height: 80vh;
     padding: 60px;
+    background: ${theme === 'light' ? "#FFFFFF" : "#122632"};
     @media (max-width: 576px) {
       padding: 20px;
       min-height: 0;

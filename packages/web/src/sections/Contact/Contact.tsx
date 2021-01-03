@@ -1,14 +1,19 @@
-import React from  'react';
+import React, {useContext} from  'react';
 import styled from '@emotion/styled';
 
 import SectionHeading from '../../components/SectionHeading/SectionHeading';
 import SectionParagraph from '../../components/SectionParagraph/SectionParagraph';
 
+import {AppContext} from '../../components/AppProvider/AppContext';
+
 function Contact(): JSX.Element {
+  const {theme} = useContext(AppContext);
+
   const Container = styled.div`
     display: grid;
     background: #F9F9F7;
     padding: 60px;
+    background: ${theme === 'light' ? "#F9F9F7" : "#172E3F"};
     @media (max-width: 576px) {
       padding: 20px;
     }
@@ -22,7 +27,7 @@ function Contact(): JSX.Element {
     }
   `;
   const Hyperlink = styled.a`
-    color: #000;
+    color: ${theme === 'light' ? "#000000" : "#FFFFFF"};
     
     &:hover {
       text-decoration: none;
