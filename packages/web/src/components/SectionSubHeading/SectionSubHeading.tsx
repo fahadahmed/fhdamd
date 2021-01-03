@@ -10,6 +10,9 @@ const SectionSubHeading: FunctionComponent<Props> = ({children}) => {
     font-family: 'Poppins', sans-serif;
     font-size: 32px;
     font-weight: 500;
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
   `;
   return(
     <Heading>{children}</Heading>

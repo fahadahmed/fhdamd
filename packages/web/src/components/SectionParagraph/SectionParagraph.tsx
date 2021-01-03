@@ -10,6 +10,9 @@ const SectionParagraph: FunctionComponent<Props> = ({children}) => {
   font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 300;
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
   `;
   return(
     <Para>{children}</Para>

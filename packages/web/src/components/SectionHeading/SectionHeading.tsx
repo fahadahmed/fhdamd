@@ -13,6 +13,11 @@ const SectionHeading: FunctionComponent<Props> = ({headingTitle}) => {
     text-transform: uppercase;
     margin: 0;
     padding: 0;
+    @media (max-width: 576px) {
+      font-size: 32px;
+      text-align: center;
+      margin-top: 30px;
+    }
   `;
   return(
     <Title>{headingTitle}</Title>

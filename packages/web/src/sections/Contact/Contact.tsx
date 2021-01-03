@@ -9,11 +9,17 @@ function Contact(): JSX.Element {
     display: grid;
     background: #F9F9F7;
     padding: 60px;
+    @media (max-width: 576px) {
+      padding: 20px;
+    }
   `;
   const ContactSection = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 60px;
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
   `;
   const Hyperlink = styled.a`
     color: #000;

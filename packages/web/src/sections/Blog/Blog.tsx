@@ -9,6 +9,9 @@ function Blog(): JSX.Element {
   const Container = styled.div`
     display: grid;
     padding: 60px;
+    @media (max-width: 576px) {
+      padding: 20px;
+    }
   `;
 
   const Article = styled.div`
@@ -34,6 +37,12 @@ function Blog(): JSX.Element {
       padding: 10px;
       padding-right: 20px;
       color: #fff;
+    }
+
+    @media (max-width: 576px) {
+      background: #000;
+      color: #fff;
+      padding: 12px;
     }
   `;
 

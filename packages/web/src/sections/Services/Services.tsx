@@ -13,6 +13,9 @@ function Services(): JSX.Element {
     display: grid;
     background: #F9F9F7;
     padding: 60px;
+    @media (max-width: 576px) {
+      padding: 20px;
+    }
   `;
   const ServicesContainer = styled.div`
     display: grid;
@@ -22,6 +25,7 @@ function Services(): JSX.Element {
 
     @media (max-width: 576px) {
       grid-template-columns: 1fr;
+      text-align: center;
     }
   `;
 
