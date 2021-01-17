@@ -21,11 +21,16 @@ function Hero(): JSX.Element {
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     font-size: 40px;
-    border-bottom: 3px solid #000;
+    padding: 20px;
+    border-bottom: 3px solid ${theme === 'light' ? "#000" : "#FFF"};
     @media (max-width: 576px) {
       font-size: 24px;
       text-align: center;
       padding-bottom: 30px;
+    }
+
+    div {
+      color: ${theme === 'light' ? "#000000" : "#EC7D8A" }
     }
   `;
   

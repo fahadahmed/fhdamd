@@ -46,7 +46,7 @@ function Navigation(): JSX.Element {
         FAHAD AHMED
       </NavTitle>
       <div>
-        <button onClick={toggleTheme}>Toggle Theme</button>
+        <button onClick={toggleTheme} style={{marginRight: "10px"}}>Toggle Theme</button>
         <NavItem>Services</NavItem>
         <NavItem>Blog</NavItem>
         <NavItem>Contact</NavItem>

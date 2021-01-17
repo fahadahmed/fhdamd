@@ -20,7 +20,7 @@ function Blog(): JSX.Element {
   `;
 
   const Article = styled.div`
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid ${theme === 'light' ? "#000" : "#FFF"};
 
     &:last-child {
       border: none;
@@ -34,20 +34,23 @@ function Blog(): JSX.Element {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 16px;
+    color: ${theme === 'light' ? "#000" : "#EC7D8A"};
     margin-bottom: 30px;
     padding: 10px 10px 10px 0px;  
 
     &:hover {
-      background: #000;
+      background: ${theme === 'light' ? "#000" : "#EC7D8A"};
       padding: 10px;
       padding-right: 20px;
       color: #fff;
     }
 
     @media (max-width: 576px) {
-      background: #000;
+      background: ${theme === 'light' ? "#000" : "#EC7D8A"};
       color: #fff;
-      padding: 12px;
+      padding: 10px;
+      
+      &:hover { padding: 10px; }
     }
   `;
 
