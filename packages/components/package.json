@@ -1,0 +1,31 @@
+{
+  "name": "components",
+  "version": "0.0.1",
+  "description": "React UI component library for the project",
+  "keywords": [
+    "react",
+    "typescript",
+    "storybook"
+  ],
+  "author": "Fahad Ahmed <fahad.ahmed@me.com>",
+  "homepage": "https://github.com/fahadahmed/fhdamd#readme",
+  "license": "ISC",
+  "main": "lib/components.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fahadahmed/fhdamd.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/fahadahmed/fhdamd/issues"
+  }
+}
