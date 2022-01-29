@@ -1,2 +1,0 @@
-# fhdamd
-Personal Website 
