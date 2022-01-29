@@ -27,5 +27,8 @@
   },
   "bugs": {
     "url": "https://github.com/fahadahmed/fhdamd/issues"
+  },
+  "devDependencies": {
+    "microbundle": "^0.14.2"
   }
 }
