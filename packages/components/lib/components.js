@@ -1,7 +1,2 @@
-'use strict';
 
-module.exports = components;
-
-function components() {
-    // TODO
-}
+//# sourceMappingURL=components.js.map

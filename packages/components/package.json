@@ -15,6 +15,7 @@
     "lib": "lib",
     "test": "__tests__"
   },
+  "source": "lib/index.js",
   "files": [
     "lib"
   ],
@@ -23,7 +24,7 @@
     "url": "git+https://github.com/fahadahmed/fhdamd.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "develop": "microbundle watch --jsx React.createElement"
   },
   "bugs": {
     "url": "https://github.com/fahadahmed/fhdamd/issues"
