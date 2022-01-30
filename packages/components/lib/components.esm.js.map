@@ -1,1 +1,1 @@
-{"version":3,"file":"components.esm.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"components.esm.js","sources":["index.js"],"sourcesContent":["'use strict';\n\nmodule.exports = components;\n\nfunction components() {\n  console.log('Front-end components package');\n}\n"],"names":["module","exports","console","log"],"mappings":"AAEAA,OAAOC,QAEP,WACEC,QAAQC,IAAI"}
