@@ -24,12 +24,21 @@
     "url": "git+https://github.com/fahadahmed/fhdamd.git"
   },
   "scripts": {
-    "develop": "microbundle watch --jsx React.createElement"
+    "develop": "microbundle watch --jsx React.createElement lib/*.jsx",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "bugs": {
     "url": "https://github.com/fahadahmed/fhdamd/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@storybook/addon-actions": "^6.4.16",
+    "@storybook/addon-essentials": "^6.4.16",
+    "@storybook/addon-links": "^6.4.16",
+    "@storybook/react": "^6.4.16",
+    "babel-loader": "^8.2.3",
     "microbundle": "^0.14.2"
-  }
+  },
+  "dependencies": {}
 }
