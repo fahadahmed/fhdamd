@@ -1,7 +1,6 @@
 'use strict';
+import Button from './Button/Button';
 
-module.exports = components;
-
-function components() {
-  console.log('Front-end components package');
-}
+module.exports = {
+  Button,
+};
