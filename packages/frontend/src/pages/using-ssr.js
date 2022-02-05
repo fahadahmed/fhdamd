@@ -16,8 +16,7 @@ function UsingSSR({ serverData }) {
       />
       <p>Welcome to a server side rendered page with a random dog photo</p>
       <p>
-        To learn more, head over to our
-        {' '}
+        To learn more, head over to our{' '}
         <a href="https://www.gatsbyjs.com/docs/reference/rendering-options/server-side-rendering/">
           documentation about Server Side Rendering
         </a>
