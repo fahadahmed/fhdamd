@@ -1,11 +1,12 @@
-import React from 'react';
-import { AppContainer } from '../styles/common.styles';
+import React, { Suspense } from 'react';
+
+const Home = React.lazy(() => import('../journeys/Home'));
 
 function IndexPage() {
   return (
-    <AppContainer>
-      <h1>Hello React</h1>
-    </AppContainer>
+    <Suspense fallback={<div>Loading ...</div>}>
+      <Home />
+    </Suspense>
   )
 }
 
