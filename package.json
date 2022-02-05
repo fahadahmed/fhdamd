@@ -1,12 +1,7 @@
 {
-  "name": "fhdamd",
-  "version": "1.0.0",
-  "description": "Personal Website for Fahad Ahmed",
-  "main": "index.js",
-  "repository": "https://github.com/fahadahmed/fhdamd.git",
-  "author": "Fahad Ahmed <fahad.ahmed@anz.com>",
-  "license": "MIT",
+  "name": "root",
+  "private": true,
   "devDependencies": {
-    "lerna": "^3.19.0"
+    "lerna": "^4.0.0"
   }
 }
