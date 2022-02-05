@@ -1,7 +1,12 @@
 import React from 'react';
 
 function IndexPage() {
-  return <div>Hello React</div>;
+  return (
+    <div>
+      <h2>Hello React</h2>
+      <p>Testing husky and lint-staged</p>
+    </div>
+  );
 }
 
 export default IndexPage;
