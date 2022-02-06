@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -40,6 +44,7 @@ module.exports = {
           storageBucket: process.env.GATSBY_APP_STORAGE_BUCKET,
           messagingSenderId: process.env.GATSBY_APP_MESSAGING_SENDER_ID,
           appId: process.env.GATSBY_APP_APP_ID,
+          measurementId: process.env.GATSBY_APP_MEASUREMENT_ID,
         },
       },
     },

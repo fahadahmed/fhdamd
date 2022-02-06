@@ -1,6 +1,8 @@
 import React from 'react';
 
 function IndexPage() {
+  console.log(process.env.GATSBY_APP_APP_ID);
+
   return (
     <div>
       <h2>Hello React</h2>
