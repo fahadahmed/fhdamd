@@ -18,8 +18,7 @@
     "lint-staged": "lint-staged"
   },
   "workspaces": [
-    "packages/app",
-    "packages/website",
+    "packages/frontend",
     "packages/functions"
   ],
   "lint-staged": {
