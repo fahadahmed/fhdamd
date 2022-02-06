@@ -1,10 +1,11 @@
 import React from 'react';
+import { AppLayout } from '../../components';
 
 function Home() {
   return (
-    <div>
+    <AppLayout>
       <h1>Home Page</h1>
-    </div>
+    </AppLayout>
   );
 }
 
