@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 
 const AppContainer = styled.div`
   display: grid;
-  background: #999999;
+  height: 100vh;
+  font-family: 'Fira Code', monospace;
 `;
 
 type Props = {
