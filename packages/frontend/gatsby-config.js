@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -25,15 +29,24 @@ module.exports = {
         short_name: 'starter',
         start_url: '/',
         background_color: '#663399',
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-firebase',
+      options: {
+        credentials: {
+          apiKey: process.env.GATSBY_APP_API_KEY,
+          authDomain: process.env.GATSBY_APP_AUTH_DOMAIN,
+          databaseURL: process.env.GATSBY_APP_DATABASE_URL,
+          projectId: process.env.GATSBY_APP_PROJECT_ID,
+          storageBucket: process.env.GATSBY_APP_STORAGE_BUCKET,
+          messagingSenderId: process.env.GATSBY_APP_MESSAGING_SENDER_ID,
+          appId: process.env.GATSBY_APP_APP_ID,
+          measurementId: process.env.GATSBY_APP_MEASUREMENT_ID,
+        },
+      },
+    },
   ],
 };
