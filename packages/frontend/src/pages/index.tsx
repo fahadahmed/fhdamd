@@ -6,7 +6,7 @@ function IndexPage() {
   return (
     <div>
       <h2>Hello React</h2>
-      <p>Testing husky and lint-staged</p>
+      <p>Testing husky and lint-staged - testing date: 14 Jul 2022</p>
       <p>Making another change</p>
     </div>
   );
