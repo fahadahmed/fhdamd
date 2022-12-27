@@ -26,9 +26,14 @@ yarn-error.log*
 .pnpm-debug.log*
 
 .firebase
+firebase-debug.log
+firestore-debug.log
+pubsub-debug.log
+ui-debug.log
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
