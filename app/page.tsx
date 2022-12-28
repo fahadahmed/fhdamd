@@ -1,17 +1,7 @@
 import React from 'react';
-import admin from '../lib/firebase';
 import Link from 'next/link';
-
-
-type Post = {
-  id: string;
-  title: string;
-  slug: string;
-  content: string;
-  tags: string[];
-}
-
-const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : ' https://ssrfahadweb-ji5xummm4q-uc.a.run.app'
+import { API_URL } from '../utils/constants';
+import type { Post } from '../pages/types/post';
 
 async function getData() {
   const res = await fetch(`${API_URL}/api/posts`, { cache: 'no-store' });
@@ -20,8 +10,6 @@ async function getData() {
 
 export default async function Home() {
   const posts = await getData();
-  console.log(posts);
-
   return (
     <main>
       <div>NextJS and Firebase Blog</div>
