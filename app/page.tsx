@@ -12,7 +12,9 @@ export default async function Home() {
   const posts = await getData();
   return (
     <main>
-      <div>NextJS and Firebase Blog</div>
+      <div>
+        <h1>Fahad Ahmed Blog</h1>
+      </div>
       {posts.map((post: Post) => (
         <div key={post.id}>
           <Link href={`post/${post.slug}`}>{post.title}</Link>
