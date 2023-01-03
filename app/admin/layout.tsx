@@ -1,10 +1,33 @@
 import React from 'react';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
+import { API_URL } from '../../utils/constants';
 
-export default function RootLayout({
+async function getUserSession() {
+  const nextCookies = cookies();
+  const token = nextCookies.get('__session');
+  const res = await fetch(`${API_URL}/api/auth/getUserSession`, {
+    cache: 'no-store',
+    method: 'POST',
+    body: JSON.stringify({ token, redirectTo: '/admin' }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await res.json();
+  return data;
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const data = await getUserSession();
+  console.log(data.user);
+  if (!data.user) {
+    redirect('/login')
+  }
   return (
     <html lang="en">
       {/*

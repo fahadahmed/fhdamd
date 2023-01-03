@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function Posts() {
+export default async function Posts() {
+
   return (
     <div>
       <h3>Posts Section</h3>
