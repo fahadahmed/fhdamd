@@ -28,6 +28,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const token = req.body.token;
+  const redirectUrl = req.body.redirectTo;
   const idToken = await getSessionToken(token);
 
   setCookie('__session', idToken, {
@@ -41,4 +42,5 @@ export default async function handler(
   });
 
   res.status(200).json({ message: 'ok' });
+  res.redirect(redirectUrl);
 }
