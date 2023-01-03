@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { withIronSessionApiRoute } from 'iron-session/next';
 
 import { setCookie } from 'cookies-next';
 import admin from '../../../lib/firebaseAdmin';
@@ -24,35 +23,13 @@ async function getSessionToken(idToken: any) {
   }
 }
 
-// export default withIronSessionApiRoute(
-//   async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-//     const token = req.body.token;
-//     const redirectTo = req.body.redirectTo;
-//     const idToken = await getSessionToken(token);
-//     await req.session.save();
-//     res.send({ message: idToken });
-//   },
-//   {
-//     cookieName: '__session',
-//     password: 'complex_password_at_least_32_characters_long',
-//     cookieOptions: {
-//       secure: process.env.NODE_ENV === 'production',
-//       sameSite: 'lax',
-//       path: '/',
-//       maxAge: 60 * 60 * 24 * 30,
-//       httpOnly: true,
-//     },
-//   }
-// );
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
   const token = req.body.token;
-  const redirectTo = req.body.redirectTo;
-
   const idToken = await getSessionToken(token);
+
   setCookie('__session', idToken, {
     req,
     res,
