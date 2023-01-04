@@ -21,7 +21,7 @@ export default async function Index({ params: { slug } }: Props) {
       <p>{post.content}</p>
       <div>
         <h4>Tags</h4>
-        {post.tags.map(tag => <span key={tag}>{tag} </span>)}
+        {post.tags.map((tag: string) => <span key={tag}>{tag} </span>)}
       </div>
     </div>
   )
