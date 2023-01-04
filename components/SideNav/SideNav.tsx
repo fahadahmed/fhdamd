@@ -11,7 +11,7 @@ type Props = {
 }
 export default function SideNav({ navLinks }: Props) {
   return (
-    <div>
+    <div style={{ background: '#efefef' }}>
       {navLinks.map((link, index) => (
         <div key={index}>
           <Link href={link.url}>{link.label}</Link>
