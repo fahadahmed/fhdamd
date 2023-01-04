@@ -2,6 +2,7 @@ import React from 'react';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { API_URL } from '../../utils/constants';
+import SideNav from '../../components/SideNav/SideNav';
 
 async function getUserSession() {
   const nextCookies = cookies();
@@ -17,6 +18,25 @@ async function getUserSession() {
   const data = await res.json();
   return data;
 }
+
+const SIDEBAR_ITEMS = [
+  {
+    label: 'Home',
+    url: 'admin'
+  },
+  {
+    label: 'Issues',
+    url: 'admin/issues'
+  },
+  {
+    label: 'Posts',
+    url: 'admin/posts'
+  },
+  {
+    label: 'Tags',
+    url: 'admin/tags'
+  }
+]
 
 export default async function RootLayout({
   children,
@@ -37,7 +57,7 @@ export default async function RootLayout({
       <head />
       <body>
         <div style={{ display: 'grid', gridTemplateColumns: '3fr 9fr', gap: '1rem' }}>
-          <div>Sidebar</div>
+          <SideNav navLinks={SIDEBAR_ITEMS} />
           <div>{children}</div>
         </div>
       </body>
