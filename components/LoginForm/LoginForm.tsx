@@ -7,9 +7,15 @@ import { redirect } from 'next/navigation';
 export default function LoginForm() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const handleLogin = async () => {
-    const email = 'fahad.ahmed@me.com';
-    const password = 'Abc$99abc';
+  const handleLogin = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      email: { value: string };
+      password: { value: string };
+    };
+    console.log(target);
+    const email = target.email.value;
+    const password = target.password.value;
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     const token = await user.getIdToken();
     const res = await fetch(`api/auth/createUserSession`, {
@@ -30,10 +36,12 @@ export default function LoginForm() {
   }
   return (
     <div>
-      <h3>Login</h3>
-      <input type="text" name="email" placeholder="email" />
-      <input type="password" name="password" placeholder="password" />
-      <button type="submit" onClick={handleLogin}>Login</button>
+      <form onSubmit={handleLogin}>
+        <h3>Login</h3>
+        <input type="text" name="email" placeholder="email" />
+        <input type="password" name="password" placeholder="password" />
+        <button type="submit">Login</button>
+      </form>
     </div>
   )
 };
