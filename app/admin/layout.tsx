@@ -48,7 +48,7 @@ export default async function Layout({
     redirect('/login')
   }
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '3fr 9fr', gap: '1rem', height: '100%' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '100px 9fr', gap: '1rem', height: '100%' }}>
       <SideNav navLinks={SIDEBAR_ITEMS} />
       <div>{children}</div>
     </div>
