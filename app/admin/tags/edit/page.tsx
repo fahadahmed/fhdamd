@@ -26,7 +26,12 @@ export default async function EditTag({ searchParams: { id } }: Props) {
   const tagData = await getTagData(id);
   return (
     <div>
-      <EditTagForm label={tagData.label} description={tagData.description} id={id} slug={tagData.slug} />
+      <EditTagForm
+        label={tagData.label}
+        description={tagData.description}
+        id={id}
+        slug={tagData.slug}
+      />
     </div>
   )
 }

@@ -10,10 +10,10 @@ export default function Tags() {
       tagLabel: { value: string };
       tagDescription: { value: string };
     };
-    console.log(target);
+
     const label = target.tagLabel.value;
     const description = target.tagDescription.value;
-    console.log('We need to make the API call for Tag creation here', label, description);
+
     const res = await fetch(`/api/tag/createTag`, {
       method: 'POST',
       body: JSON.stringify({ label, description }),
