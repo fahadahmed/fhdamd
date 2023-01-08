@@ -4,12 +4,11 @@ import { API_URL } from '../../../utils/constants';
 
 async function getAllTags() {
   const res = await fetch(`${API_URL}/api/tag/getTags`, { cache: 'no-store' });
-  return res.json();
+  return await res.json();
 }
 
 export default async function Tags() {
   const tags = await getAllTags();
-  console.log(tags)
   return (
     <div style={{ padding: '2rem' }}>
       <h3>Tags Section</h3>
@@ -23,11 +22,10 @@ export default async function Tags() {
         <li>Delete Tags - When a tag is deleted, then a cloud function is run to delete all the tags in the list of posts</li>
       </ul>
       <div>
-        {tags.map((tag) => (
+        {tags.map((tag: any) => (
           <div key={tag.id} style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            display: 'grid',
+            gridTemplateColumns: '2fr 6fr 2fr 2fr',
             background: '#efefef',
             padding: '1rem',
             marginBottom: '0.5rem'
@@ -36,7 +34,14 @@ export default async function Tags() {
             <span>{tag.description}</span>
             <span>{tag.slug}</span>
             <span>
-              <Link href='admin/tags/edit'>Edit</Link>
+              <Link
+                href={{
+                  pathname: '/admin/tags/edit',
+                  query: { id: tag.id },
+                }}
+              >
+                Edit
+              </Link>
               <button>Delete</button>
             </span>
           </div>

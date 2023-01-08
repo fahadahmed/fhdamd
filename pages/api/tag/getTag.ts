@@ -11,14 +11,14 @@ type Tag = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Tag[]>
+  res: NextApiResponse<Tag>
 ) {
+  const id = req.body.id;
   const db = admin.firestore();
-  const tags = (await db.collection('tags').get()).docs.map((doc) => {
-    return {
-      id: doc.id,
-      ...doc.data(),
-    };
-  });
-  res.status(200).json(tags as Tag[]);
+  const tagRef = db.collection('tags').doc(id);
+  const tag = await tagRef.get();
+  res.status(200).json({
+    id: req.body.id,
+    ...tag.data(),
+  } as Tag);
 }
