@@ -24,12 +24,26 @@ export default function EditTagForm({ label, description, id, slug }: Props) {
       <form onSubmit={handleEditTag}>
         <div>
           <label htmlFor="tagLabel">
-            <input type="text" name="tagLabel" placeholder="Enter label (e.g.: Frontend)" value={tagLabel} onChange={e => setTagLabel(e.target.value)} />
+            <input
+              type="text"
+              name="tagLabel"
+              placeholder="Enter label (e.g.: Frontend)"
+              value={tagLabel}
+              onChange={e => setTagLabel(e.target.value)}
+            />
           </label>
         </div>
         <div>
           <label htmlFor="tagDescription">
-            <textarea name="tagDescription" id="" cols={30} rows={10} placeholder="Enter details about the tag" value={tagDescription} onChange={e => setTagDescription(e.target.value)}></textarea>
+            <textarea
+              name="tagDescription"
+              id=""
+              cols={30}
+              rows={10}
+              placeholder="Enter details about the tag"
+              value={tagDescription}
+              onChange={e => setTagDescription(e.target.value)}
+            />
           </label>
         </div>
         <button type='submit'>Edit New Tag</button>
