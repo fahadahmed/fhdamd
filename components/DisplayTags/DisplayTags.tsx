@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { API_URL } from '../../utils/constants';
 
 type Props = {
   tags: any
@@ -9,9 +10,23 @@ type Props = {
 
 export default function DisplayTags({ tags }: Props) {
 
-  const handleDelete = (tag: any) => {
-    console.log(tag)
+  const handleDelete = async (tag: any) => {
+    console.log(tag);
+    const res = await fetch(`${API_URL}/api/tag/deleteTag`, {
+      method: 'POST',
+      body: JSON.stringify({
+        id: tag.id,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      cache: 'no-store'
+    });
+
+    console.log(await res.json())
   }
+
+
   return (
     <div>
       <div>
