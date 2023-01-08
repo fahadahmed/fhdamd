@@ -1,6 +1,7 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { API_URL } from '../../utils/constants';
+import Link from 'next/link';
 
 type Props = {
   label: string,
@@ -13,6 +14,7 @@ export default function EditTagForm({ label, description, id, slug }: Props) {
 
   const [tagLabel, setTagLabel] = useState(label);
   const [tagDescription, setTagDescription] = useState(description);
+  const [didTagUpdate, setDidTagUpdate] = useState(false);
 
   const handleEditTag = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -29,7 +31,11 @@ export default function EditTagForm({ label, description, id, slug }: Props) {
       },
       cache: 'no-store'
     });
-    console.log('We can edit the tag here.', await res.json())
+    const data = await res.json();
+
+    if (data?.success) {
+      setDidTagUpdate(true);
+    }
   }
 
   return (
@@ -62,6 +68,12 @@ export default function EditTagForm({ label, description, id, slug }: Props) {
         </div>
         <button type='submit'>Edit New Tag</button>
       </form>
+      {didTagUpdate ? (
+        <div>
+          <p>This should be a toast notification but <strong>The tag has been updated</strong></p>
+        </div>
+      ) : null}
+      <Link href="/admin/tags">Back to Tags</Link>
     </div>
   )
 }

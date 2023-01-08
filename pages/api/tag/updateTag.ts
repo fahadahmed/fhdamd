@@ -3,7 +3,9 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import admin from '../../../lib/firebaseAdmin';
 
 type Data = {
-  name: string;
+  success: boolean;
+  message: string;
+  data: any;
 };
 
 export default async function handler(
@@ -19,5 +21,9 @@ export default async function handler(
     .set({ label, description, slug });
   console.log(updateDB);
 
-  res.status(200).json({ name: 'John Doe' });
+  res.status(200).json({
+    success: true,
+    message: 'The tag has been updated successfully',
+    data: updateDB,
+  });
 }
