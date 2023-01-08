@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../../utils/constants';
 
 type Props = {
   label: string,
@@ -13,9 +14,22 @@ export default function EditTagForm({ label, description, id, slug }: Props) {
   const [tagLabel, setTagLabel] = useState(label);
   const [tagDescription, setTagDescription] = useState(description);
 
-  const handleEditTag = (e: React.SyntheticEvent) => {
+  const handleEditTag = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log('We can edit the tag here.', tagLabel)
+    const res = await fetch(`${API_URL}/api/tag/updateTag`, {
+      method: 'POST',
+      body: JSON.stringify({
+        label: tagLabel,
+        description: tagDescription,
+        id,
+        slug
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      cache: 'no-store'
+    });
+    console.log('We can edit the tag here.', await res.json())
   }
 
   return (

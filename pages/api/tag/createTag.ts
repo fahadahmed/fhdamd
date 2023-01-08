@@ -18,7 +18,7 @@ export default async function handler(
   try {
     const response = await db.collection('tags').add({ label, description });
     console.log(response.id);
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error);
   }
 
