@@ -13,7 +13,6 @@ export default function LoginForm() {
       email: { value: string };
       password: { value: string };
     };
-    console.log(target);
     const email = target.email.value;
     const password = target.password.value;
     const { user } = await signInWithEmailAndPassword(auth, email, password);
@@ -25,7 +24,6 @@ export default function LoginForm() {
         'Content-Type': 'application/json'
       }
     });
-    console.log(await res.json());
     if (res.status === 200) {
       setLoggedIn(true);
     }
