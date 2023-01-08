@@ -3,13 +3,7 @@ import React from 'react';
 import { API_URL } from '../../../../utils/constants';
 import EditTagForm from '../../../../components/EditTagForm/EditTagForm';
 
-type Props = {
-  searchParams: {
-    id: string
-  }
-}
-
-export async function getTagData(id: string) {
+async function getTagData(id: string) {
   const res = await fetch(`${API_URL}/api/tag/getTag`, {
     method: 'POST',
     body: JSON.stringify({ id }),
@@ -21,7 +15,7 @@ export async function getTagData(id: string) {
   return await res.json();
 }
 
-export default async function EditTag({ searchParams: { id } }: Props) {
+export default async function EditTag({ searchParams: { id } }: any) {
 
   const tagData = await getTagData(id);
   return (
