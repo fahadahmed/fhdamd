@@ -1,8 +1,7 @@
 'use client'
-
-import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
-
+import Link from 'next/link';
+import React, { useState } from 'react';
+import type { Post } from '../../pages/types/post';
 const inputStyles = {
   marginTop: '0.5rem',
   marginBottom: '0.5rem',
@@ -15,20 +14,24 @@ const textAreaStyles = {
   padding: '1rem',
 }
 
-export default function CreatePost() {
+type Props = {
+  post: Post
+}
 
-  const [title, setTitle] = useState('')
-  const [excerpt, setExcerpt] = useState('');
-  const [content, setContent] = useState('');
-  const [slug, setSlug] = useState('');
-  const [tags, setTags] = useState<string[]>([]);
+export default function EditPostForm({ post }: Props) {
+
+  const [title, setTitle] = useState(post.title)
+  const [excerpt, setExcerpt] = useState(post.excerpt);
+  const [content, setContent] = useState(post.content);
+  const [slug, setSlug] = useState(post.slug);
+  const [tags, setTags] = useState<string[]>(post.tags);
   const [tag, setTag] = useState('');
-  const [posts, setPosts] = useState([]);
 
-  const handleCreatePost = async () => {
-    const res = await fetch(`/api/post/createPost`, {
+  const handleUpdatePost = async () => {
+    const id = post.id;
+    const res = await fetch(`/api/post/updatePost`, {
       method: 'POST',
-      body: JSON.stringify({ title, excerpt, content, slug, tags }),
+      body: JSON.stringify({ id, title, excerpt, content, slug, tags }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -39,23 +42,6 @@ export default function CreatePost() {
 
   const handleTitleChange = (e: React.BaseSyntheticEvent) => {
     setTitle(e.target.value)
-    handleSlugCreation(e);
-  }
-
-  const handleSlugCreation = (e: React.BaseSyntheticEvent) => {
-    setSlug(e.target.value.replace(/ /g, "-").toLowerCase());
-  }
-
-  const checkSlug = () => {
-    const value = slug.replace(/ /g, "-").toLowerCase();
-    // compare the value with all the posts slug values
-    // if the value matches then generate a unique hex value and append to the slug
-    const existingSlug = posts.find((post: any) => post.slug === value);
-    if (Boolean(existingSlug)) {
-      const id = nanoid(6);
-      const appendedSlug = slug + '-' + id;
-      setSlug(appendedSlug);
-    }
   }
 
   const handleTagCreation = (e: React.KeyboardEvent) => {
@@ -67,22 +53,11 @@ export default function CreatePost() {
     }
   }
 
-  const fetchPosts = async () => {
-    const res = await fetch(`/api/posts`);
-    const fetchedPosts = await res.json();
-    setPosts(fetchedPosts);
-  }
-
-  useEffect(() => {
-    fetchPosts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
-      <h1>Create a New Post</h1>
+      <h1>Update Post</h1>
       <form
-        id="createPost"
+        id="updatePost"
         style={{
           display: 'grid',
           gridTemplateColumns: '9fr 3fr',
@@ -98,7 +73,6 @@ export default function CreatePost() {
             style={inputStyles}
             value={title}
             onChange={handleTitleChange}
-            onBlur={checkSlug}
           />
           <input
             type="text"
@@ -147,7 +121,8 @@ export default function CreatePost() {
           </div>
         </div>
         <div>
-          <button type="button" onClick={handleCreatePost}>Save Post</button>
+          <button type="button" onClick={handleUpdatePost}>Update Post</button>
+          <Link href="/admin/posts">Back to posts</Link>
         </div>
       </form>
     </>
