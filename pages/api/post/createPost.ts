@@ -25,6 +25,7 @@ export default async function handler(
       slug,
       content,
       tags,
+      status: 'unpublished',
     });
     console.log(response);
   } catch (error: any) {
