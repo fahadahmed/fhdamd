@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import admin from '../../../lib/firebaseAdmin';
 
 type Data = {
-  tag: string;
+  issue: string;
 };
 
 const db = admin.firestore();
@@ -17,10 +17,8 @@ export default async function handler(
 
   try {
     const response = await db.collection('issues').add({ name, description });
-    console.log(response.id);
+    res.status(200).json({ issue: response.id });
   } catch (error: any) {
     throw new Error(error);
   }
-
-  res.status(200).json({ tag: name });
 }
