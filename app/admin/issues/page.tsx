@@ -1,15 +1,20 @@
 import React from 'react';
+import Link from 'next/link';
+import { API_URL } from '../../../utils/constants';
+import DisplayIssues from '../../../components/DisplayIssues';
 
-export default function Issues() {
+
+async function getAllIssues() {
+  const res = await fetch(`${API_URL}/api/issue/getIssues`, { cache: 'no-store' });
+  return await res.json();
+}
+export default async function Issues() {
+  const issues = await getAllIssues();
   return (
-    <div>
+    <div style={{ padding: '2rem' }}>
       <h3>Issues Section</h3>
-      <ul>
-        <li>Create Issues</li>
-        <li>Read a list of Issues</li>
-        <li>Update Issues</li>
-        <li>Delete Issues</li>
-      </ul>
+      <Link href='/admin/issues/create'>Create a new issue</Link>
+      <DisplayIssues issues={issues} />
     </div>
   )
 }
