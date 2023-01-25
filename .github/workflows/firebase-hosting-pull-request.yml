@@ -38,14 +38,11 @@ jobs:
           yarn
           yarn build
 
-      - name: Enabling Firebase Experimental Frameworks
-        run: |
-          yarn add firebase
-          firebase experiments:enable webframeworks
-
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FAHAD_WEB }}'
           projectId: fahad-web
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
