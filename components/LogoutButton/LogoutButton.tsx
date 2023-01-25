@@ -8,7 +8,12 @@ export default function LogoutButton() {
 
   const handleLogout = async () => {
     const res = await fetch(`${API_URL}/api/auth/signOutUserSession`, {
-      cache: 'no-store'
+      cache: 'no-store',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': process.env.CORS_URL || 'http://localhost:3000'
+      }
     });
     if (res.status === 200) {
       setLoggedOut(true)
