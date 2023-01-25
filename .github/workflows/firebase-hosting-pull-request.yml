@@ -40,6 +40,7 @@ jobs:
 
       - name: Enabling Firebase Experimental Frameworks
         run: |
+          yarn add firebase
           firebase experiments:enable webframeworks
 
       - name: Deploy to Firebase
