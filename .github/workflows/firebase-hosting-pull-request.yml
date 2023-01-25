@@ -38,6 +38,10 @@ jobs:
           yarn
           yarn build
 
+      - name: Enabling Firebase Experimental Frameworks
+        run: |
+          firebase experiments:enable webframeworks
+
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
