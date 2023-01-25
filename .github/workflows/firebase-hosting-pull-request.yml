@@ -26,6 +26,13 @@ jobs:
           NEXT_PUBLIC_FIREBASE_APP_ID= ${{secrets.NEXT_PUBLIC_FIREBASE_APP_ID}}
           NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID= ${{secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID}}" > .env
 
+      - name: Create a Service Account JSON for the project
+        id: create-json
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: 'serviceAccountKey.json'
+          json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FAHAD_WEB }}
+
       - name: Build the project
         run: |
           yarn
