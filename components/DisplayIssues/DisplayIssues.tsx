@@ -34,7 +34,7 @@ export default function DisplayIssues({ issues }: Props) {
           <div key={issue.id} style={{
             display: 'grid',
             gridTemplateColumns: '2fr 6fr 2fr 2fr',
-            background: '#efefef',
+            background: '#EBE9DA',
             padding: '1rem',
             marginBottom: '0.5rem'
           }}>

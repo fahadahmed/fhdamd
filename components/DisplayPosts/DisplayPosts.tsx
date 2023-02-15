@@ -30,41 +30,42 @@ export default function DisplayPosts({ posts }: Props) {
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h3>Posts Section</h3>
-      <ul>
-        <li>Create Posts</li>
-        <li>Read a list of posts</li>
-        <li>Update Posts</li>
-        <li>Delete Posts</li>
-      </ul>
-      <div><Link href='admin/posts/create'>Create a new Post</Link></div>
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
+        <h3>Posts Section</h3>
+        <div><Link href='admin/posts/create'>Create a new Post</Link></div>
+      </div>
+      <div style={{ background: '#ffffff', padding: '1rem', border: '2px solid #EBE9DA' }}>
         {posts.map((post: Post) => (
           <div key={post.id} style={{
             padding: '1rem',
-            background: '#efefef',
+            borderBottom: '2px solid #EBE9DA',
             marginTop: '0.5rem',
             display: 'grid',
             gridTemplateColumns: '8fr 3fr 1fr'
           }}>
-            <div>{post.title}</div>
-            <div>{post.tags.map((tag, i) => (
-              <span key={i} style={{
-                padding: '0.5rem',
-                background: '#d3d3d3',
-                borderRadius: '3rem',
-                margin: '0.5rem'
-              }}>{tag}</span>
-            ))}</div>
-            <div>
+            <div style={{ color: '#453E3E' }}>
               <Link
                 href={{
                   pathname: '/admin/posts/edit',
                   query: { id: post.id },
                 }}
               >
-                Edit
+                {post.title}
               </Link>
+            </div>
+            <div>{post.tags.map((tag, i) => (
+              <span key={i} style={{
+                padding: '0.25rem 0.5rem',
+                background: '#EBE9DA',
+                borderRadius: '0.25rem',
+                margin: '0.5rem',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: '#453E3E'
+              }}>{tag}</span>
+            ))}</div>
+            <div>
               <button onClick={() => handleDeletePost(post)}>Delete</button>
             </div>
           </div>

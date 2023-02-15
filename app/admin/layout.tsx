@@ -3,6 +3,10 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { API_URL } from '../../utils/constants';
 import SideNav from '../../components/SideNav/SideNav';
+import homeIcon from '../../public/home.svg';
+import tagsIcon from '../../public/tags.svg';
+import issuesIcon from '../../public/calendar-lines.svg';
+import postsIcon from '../../public/document-signed.svg';
 
 async function getUserSession() {
   const nextCookies = cookies();
@@ -22,19 +26,23 @@ async function getUserSession() {
 const SIDEBAR_ITEMS = [
   {
     label: 'Home',
-    url: 'admin'
+    url: 'admin',
+    icon: homeIcon
   },
   {
     label: 'Issues',
-    url: 'admin/issues'
+    url: 'admin/issues',
+    icon: issuesIcon
   },
   {
     label: 'Posts',
-    url: 'admin/posts'
+    url: 'admin/posts',
+    icon: postsIcon
   },
   {
     label: 'Tags',
-    url: 'admin/tags'
+    url: 'admin/tags',
+    icon: tagsIcon
   }
 ]
 
