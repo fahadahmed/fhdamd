@@ -26,7 +26,6 @@ async function getData() {
 
 export default async function Home() {
   const posts = await getData();
-  console.log(posts)
   return (
     <main>
       <div className={heading}>Hello 🐼!</div>

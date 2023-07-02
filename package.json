@@ -32,6 +32,7 @@
     "@storybook/react": "^7.0.23",
     "@storybook/testing-library": "^0.0.14-next.2",
     "eslint-plugin-storybook": "^0.6.12",
+    "miragejs": "^0.1.47",
     "storybook": "^7.0.23"
   }
 }
