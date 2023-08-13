@@ -16,6 +16,8 @@ export default defineConfig({
     tokens: {
       colors: {
         primary: { value: ' #41424D' },
+        secondary: { value: '#FFFFFF' },
+        accent: { value: '#FFCD41' },
       },
     },
   },

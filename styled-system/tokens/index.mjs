@@ -3,6 +3,14 @@ const tokens = {
     "value": " #41424D",
     "variable": "var(--colors-primary)"
   },
+  "colors.secondary": {
+    "value": "#FFFFFF",
+    "variable": "var(--colors-secondary)"
+  },
+  "colors.accent": {
+    "value": "#FFCD41",
+    "variable": "var(--colors-accent)"
+  },
   "breakpoints.sm": {
     "value": "640px",
     "variable": "var(--breakpoints-sm)"

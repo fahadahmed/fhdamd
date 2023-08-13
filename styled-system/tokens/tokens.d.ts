@@ -1,7 +1,7 @@
 /* eslint-disable */
-export type Token = "colors.primary" | "breakpoints.sm" | "breakpoints.md" | "breakpoints.lg" | "breakpoints.xl" | "breakpoints.2xl" | "sizes.breakpoint-sm" | "sizes.breakpoint-md" | "sizes.breakpoint-lg" | "sizes.breakpoint-xl" | "sizes.breakpoint-2xl"
+export type Token = "colors.primary" | "colors.secondary" | "colors.accent" | "breakpoints.sm" | "breakpoints.md" | "breakpoints.lg" | "breakpoints.xl" | "breakpoints.2xl" | "sizes.breakpoint-sm" | "sizes.breakpoint-md" | "sizes.breakpoint-lg" | "sizes.breakpoint-xl" | "sizes.breakpoint-2xl"
 
-export type ColorToken = "primary"
+export type ColorToken = "primary" | "secondary" | "accent"
 
 export type BreakpointToken = "sm" | "md" | "lg" | "xl" | "2xl"
 

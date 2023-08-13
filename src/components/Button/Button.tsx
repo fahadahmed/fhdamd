@@ -1,20 +1,31 @@
 import { css } from '../../../styled-system/css'
 
 const styles = css({
-  color: 'primary',
-  bg: '#fff',
+  color: 'secondary',
+  bg: 'primary',
   border: `1px solid`,
   borderColor: 'primary',
-  padding: '10px 20px',
+  padding: '1rem 2.5rem',
+  fontFamily: 'Inter, sans-serif',
   fontSize: '16px',
+  fontWeight: '600',
   '&:hover': {
-    bg: 'primary',
-    color: '#fff',
+    bg: 'secondary',
+    border: `1px solid`,
+    borderColor: 'primary',
+    color: 'primary',
+    cursor: 'pointer'
   },
 });
 
-function Button() {
-  return <button className={styles}>Sign-up for newsletter</button>;
+type ButtonProps = {
+  label: string;
+  onClick: () => void;
+
+}
+
+function Button({ label, onClick }: ButtonProps) {
+  return <button className={styles} onClick={onClick}>{label}</button>;
 }
 
 export default Button;
