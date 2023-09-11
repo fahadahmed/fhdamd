@@ -1,33 +1,32 @@
+'use client'
 import { css } from '../../styled-system/css'
-import { Header } from '@/components';
+import { Button } from '@/components'
 
 const container = css({
-  backgroundColor: '#303031',
-  height: '100vh',
-  color: '#BCBABA',
+  color: '#41424D',
+  fontWeight: 'light',
   display: 'grid',
-  gridTemplateRows: '100px 1fr 50px'
 })
 const title = css({
-  fontFamily: 'Rubik, sans-serif',
+  fontFamily: 'Inter, sans-serif',
   fontSize: '64px',
-  fontWeight: 'bold',
-  paddingTop: '6rem'
+  fontWeight: 'bold'
 })
 
 const content = css({
-  fontFamily: 'Rubik, sans-serif',
-  fontSize: '32px',
-  fontWeight: 'regular',
+  fontFamily: 'Inter',
+  fontSize: '24px',
+  fontWeight: 'light',
   paddingTop: '2rem'
 })
 
 const issueContainer = css({
   background: '#BCBABA',
   color: '#41424D',
-  margin: '10rem 4rem 0 4rem',
+  margin: '4rem 0 0 4rem',
   padding: '2rem',
-  fontSize: '32px',
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '20px',
   fontWeight: 'light',
 })
 
@@ -38,19 +37,19 @@ const issueStamp = css({
 })
 
 const newsletterTitle = css({
-  fontFamily: 'Rubik, sans-serif',
+  fontFamily: 'Inter, sans-serif',
   fontSize: '24px',
   fontWeight: 'bold',
 })
 
 const newsletterContent = css({
-  fontFamily: 'Rubik, sans-serif',
+  fontFamily: 'Inter, sans-serif',
   fontSize: '20px',
   fontWeight: 'regular',
 })
 
 const subscribeButton = css({
-  fontFamily: 'Rubik, sans-serif',
+  fontFamily: 'Inter, sans-serif',
   fontSize: '16px',
   fontWeight: 'bold',
   color: '#FFCD41',
@@ -83,38 +82,42 @@ async function getData() {
 export default async function Home() {
   const posts = await getData();
   return (
-    // <main className={container}>
-    //   <Header />
-    //   <div style={{ padding: '2rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
-    //     <div>
-    //       <div>
-    //         <h1 className={title}>Hello, I&apos;m Fahad.</h1>
-    //         <p className={content}>Welcome to my website.</p>
-    //         <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
-    //       </div>
-    //       <div style={{ marginTop: '2rem' }}>
-    //         <h3 className={newsletterTitle}>Newsletter</h3>
-    //         <p className={newsletterContent}>Sign-up for my newsletter and receive updates for when a new issue is released. I will not spam you.</p>
-    //         <button className={subscribeButton}>Sign-up to newsletter</button>
-    //       </div>
+    <div className={container}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
+        <div>
+          <div>
+            <h1 className={title}>Hello, I&apos;m Fahad.</h1>
+            <p className={content}>Welcome to my website.</p>
+            <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
+          </div>
+          <div style={{ marginTop: '2rem' }}>
+            <h3 className={newsletterTitle}>Newsletter</h3>
+            <p className={newsletterContent}>Sign-up for my newsletter and receive updates for when a new issue is released. I will not spam you.</p>
+            <Button label="Subscribe to newsletter" onClick={() => console.log('Function not implemented')} />
+          </div>
+        </div>
+        <div className={issueContainer}>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>Latest Issue</h2>
+            <div className={issueStamp}>
+              <div style={{ fontSize: '16px', fontWeight: 'bold' }}>ISSUE</div>
+              <div style={{ fontSize: '48px', fontWeight: 'bold', fontFamily: 'Karantina' }}>No. 1</div>
+            </div>
+          </div>
+          {posts.map((post) => (
+            <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem', fontSize: '1.5rem', fontWeight: 'normal' }}>
+              <a href={`blog/${post.slug}`}><h3>{post.title}</h3></a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    // <div>
+    //   {posts.map((post) => (
+    //     <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem' }}>
+    //       <a href={`blog/${post.slug}`}><h2>{post.title}</h2></a>
     //     </div>
-    //     <div className={issueContainer}>
-    //       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-    //         <h2 style={{ fontWeight: 'bold' }}>Latest Issue</h2>
-    //         <div className={issueStamp}>
-    //           <div style={{ fontSize: '16px', fontWeight: 'bold' }}>ISSUE</div>
-    //           <div style={{ fontSize: '48px', fontWeight: 'bold', fontFamily: 'monospace' }}>No. 1</div>
-    //         </div>
-    //       </div>
-    //       {posts.map((post) => (
-    //         <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem' }}>
-    //           <a href={`blog/${post.slug}`}><h2>{post.title}</h2></a>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    //   <div style={{ padding: '1rem', display: 'flex', justifyContent: 'flex-end' }}>site built by Fahad Ahmed | copyrighted 2023</div>
-    // </main>
-    <div>Home</div>
+    //   ))}
+    // </div>
   )
 }

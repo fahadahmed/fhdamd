@@ -6,31 +6,42 @@ import MoonIcon from '../../../public/images/moon.svg'
 const heading = css({
   fontSize: '24px',
   fontWeight: 'bold',
-  fontFamily: 'Rubik, sans-serif',
-})
+  fontFamily: 'Inter, sans-serif',
+});
 
 const IconButton = css({
   padding: '1rem',
   borderRadius: '50%',
-  background: '#efefef',
+  background: 'none',
   '&:hover': {
     background: '#dcdcdc'
   }
-})
+});
+
+const navLink = css({
+  fontSize: '16px',
+  fontWeight: 'normal',
+  fontFamily: 'Inter, sans-serif',
+
+  '&:hover': {
+    textDecoration: 'underline'
+  }
+});
 
 function Header() {
   return (
-    <header style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <header style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Image src={Logo} alt="logo" width="60" height="62" />
           <h1 className={heading}>Fahad Ahmed</h1>
         </div>
         <div>
-          <a href="/blog" style={{ margin: '1rem' }}>Blog</a>
-          <a href="/projects" style={{ margin: '1rem' }}>Projects</a>
-          <a href="https://github.com/fahadahmed" style={{ margin: '1rem' }}>GitHub</a>
-          <a href="mailto:fahad.ahmed@me.com" style={{ margin: '1rem' }}>Contact</a>
+          <a href="/" className={navLink}>Home</a>
+          <a href="/blog" className={navLink} style={{ marginLeft: '1rem' }}>Blog</a>
+          <a href="/projects" style={{ marginLeft: '1rem' }} className={navLink}>Projects</a>
+          <a href="https://github.com/fahadahmed" style={{ marginLeft: '1rem' }} className={navLink}>GitHub</a>
+          <a href="mailto:fahad.ahmed@me.com" style={{ marginLeft: '1rem' }} className={navLink}>Contact</a>
         </div>
       </div>
       <div>
