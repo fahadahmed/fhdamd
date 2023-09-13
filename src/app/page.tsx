@@ -1,6 +1,6 @@
 'use client'
 import { css } from '../../styled-system/css'
-import { Button } from '@/components'
+import { Button, TextInput } from '@/components'
 
 const container = css({
   color: '#41424D',
@@ -8,26 +8,26 @@ const container = css({
   display: 'grid',
 })
 const title = css({
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
   fontSize: '64px',
-  fontWeight: 'bold'
+  fontWeight: '700'
 })
 
 const content = css({
-  fontFamily: 'Inter',
+  fontFamily: 'inter',
   fontSize: '24px',
-  fontWeight: 'light',
+  fontWeight: '300',
   paddingTop: '2rem'
 })
 
 const issueContainer = css({
-  background: '#BCBABA',
+  background: '#FBFBFB',
   color: '#41424D',
   margin: '4rem 0 0 4rem',
   padding: '2rem',
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
   fontSize: '20px',
-  fontWeight: 'light',
+  fontWeight: '100',
 })
 
 const issueStamp = css({
@@ -37,25 +37,28 @@ const issueStamp = css({
 })
 
 const newsletterTitle = css({
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
   fontSize: '24px',
-  fontWeight: 'bold',
+  fontWeight: '700',
 })
 
 const newsletterContent = css({
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
   fontSize: '20px',
-  fontWeight: 'regular',
+  fontWeight: '300',
 })
 
-const subscribeButton = css({
-  fontFamily: 'Inter, sans-serif',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  color: '#FFCD41',
-  border: '1px solid #FFCD41',
-  padding: '1rem 3rem',
-  marginTop: '1rem'
+const issueLink = css({
+  font: 'inter',
+  fontSize: '24px',
+  fontWeight: '300',
+  '&:hover': {
+    fontWeight: 'bold',
+  }
+})
+
+const issueNumber = css({
+  fontSize: '48px', fontWeight: '700', fontFamily: 'knewave'
 })
 
 async function getData() {
@@ -83,7 +86,7 @@ export default async function Home() {
   const posts = await getData();
   return (
     <div className={container}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginTop: '2rem' }}>
         <div>
           <div>
             <h1 className={title}>Hello, I&apos;m Fahad.</h1>
@@ -93,6 +96,10 @@ export default async function Home() {
           <div style={{ marginTop: '2rem' }}>
             <h3 className={newsletterTitle}>Newsletter</h3>
             <p className={newsletterContent}>Sign-up for my newsletter and receive updates for when a new issue is released. I will not spam you.</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', padding: '2rem 0' }}>
+              <TextInput placeholderText="Your name" inputType="text" onChange={(value: string) => console.log(value)} />
+              <TextInput placeholderText="Email address" inputType="text" onChange={(value: string) => console.log(value)} />
+            </div>
             <Button label="Subscribe to newsletter" onClick={() => console.log('Function not implemented')} />
           </div>
         </div>
@@ -101,12 +108,12 @@ export default async function Home() {
             <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>Latest Issue</h2>
             <div className={issueStamp}>
               <div style={{ fontSize: '16px', fontWeight: 'bold' }}>ISSUE</div>
-              <div style={{ fontSize: '48px', fontWeight: 'bold', fontFamily: 'Karantina' }}>No. 1</div>
+              <div className={issueNumber}>No. 1</div>
             </div>
           </div>
           {posts.map((post) => (
             <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem', fontSize: '1.5rem', fontWeight: 'normal' }}>
-              <a href={`blog/${post.slug}`}><h3>{post.title}</h3></a>
+              <a href={`blog/${post.slug}`}><h3 className={issueLink}>{post.title}</h3></a>
             </div>
           ))}
         </div>

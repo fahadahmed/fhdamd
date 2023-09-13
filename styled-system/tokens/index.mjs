@@ -11,6 +11,14 @@ const tokens = {
     "value": "#FFCD41",
     "variable": "var(--colors-accent)"
   },
+  "fonts.inter": {
+    "value": "var(--font-inter)",
+    "variable": "var(--fonts-inter)"
+  },
+  "fonts.knewave": {
+    "value": "var(--font-knewave)",
+    "variable": "var(--fonts-knewave)"
+  },
   "breakpoints.sm": {
     "value": "640px",
     "variable": "var(--breakpoints-sm)"

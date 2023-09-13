@@ -1,11 +1,12 @@
 import './index.css'
 import { Inter } from 'next/font/google'
-import { Karantina } from 'next/font/google'
+import { Knewave } from 'next/font/google'
 import { Header, Footer } from '@/components'
 import { css } from '../../styled-system/css'
 
-const inter = Inter({ subsets: ['latin'] })
-const karantina = Karantina({ subsets: ['latin'], display: 'swap', weight: "700" })
+
+const knewave = Knewave({ subsets: ['latin'], display: 'swap', weight: ['400'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['100', '300', '400', '500', '700'] });
 
 export const metadata = {
   title: 'Fahad Ahmed',
@@ -28,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${karantina.className} ${appContainer}`}>
+    <html lang="en" className={`${inter.className} ${knewave.className}`}>
+      <body className={`${appContainer}`}>
         <Header />
         <main className={containerStyles}>{children}</main>
         <Footer />

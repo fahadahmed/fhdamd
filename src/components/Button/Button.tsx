@@ -6,7 +6,7 @@ const styles = css({
   border: `1px solid`,
   borderColor: 'primary',
   padding: '1rem 2.5rem',
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
   fontSize: '16px',
   fontWeight: '600',
   '&:hover': {

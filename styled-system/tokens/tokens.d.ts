@@ -1,7 +1,9 @@
 /* eslint-disable */
-export type Token = "colors.primary" | "colors.secondary" | "colors.accent" | "breakpoints.sm" | "breakpoints.md" | "breakpoints.lg" | "breakpoints.xl" | "breakpoints.2xl" | "sizes.breakpoint-sm" | "sizes.breakpoint-md" | "sizes.breakpoint-lg" | "sizes.breakpoint-xl" | "sizes.breakpoint-2xl"
+export type Token = "colors.primary" | "colors.secondary" | "colors.accent" | "fonts.inter" | "fonts.knewave" | "breakpoints.sm" | "breakpoints.md" | "breakpoints.lg" | "breakpoints.xl" | "breakpoints.2xl" | "sizes.breakpoint-sm" | "sizes.breakpoint-md" | "sizes.breakpoint-lg" | "sizes.breakpoint-xl" | "sizes.breakpoint-2xl"
 
 export type ColorToken = "primary" | "secondary" | "accent"
+
+export type FontToken = "inter" | "knewave"
 
 export type BreakpointToken = "sm" | "md" | "lg" | "xl" | "2xl"
 
@@ -9,6 +11,7 @@ export type SizeToken = "breakpoint-sm" | "breakpoint-md" | "breakpoint-lg" | "b
 
 export type Tokens = {
 		colors: ColorToken
+		fonts: FontToken
 		breakpoints: BreakpointToken
 		sizes: SizeToken
 } & { [token: string]: never }

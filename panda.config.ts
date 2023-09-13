@@ -19,6 +19,10 @@ export default defineConfig({
         secondary: { value: '#FFFFFF' },
         accent: { value: '#FFCD41' },
       },
+      fonts: {
+        inter: { value: 'var(--font-inter)' },
+        knewave: { value: 'var(--font-knewave)' },
+      },
     },
   },
 

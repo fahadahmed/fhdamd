@@ -6,7 +6,7 @@ import MoonIcon from '../../../public/images/moon.svg'
 const heading = css({
   fontSize: '24px',
   fontWeight: 'bold',
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
 });
 
 const IconButton = css({
@@ -21,7 +21,7 @@ const IconButton = css({
 const navLink = css({
   fontSize: '16px',
   fontWeight: 'normal',
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'inter',
 
   '&:hover': {
     textDecoration: 'underline'
