@@ -38,8 +38,9 @@ function Header() {
         </div>
         <div>
           <a href="/" className={navLink}>Home</a>
+          <a href="/about" className={navLink} style={{ marginLeft: '1rem' }}>About Me</a>
           <a href="/blog" className={navLink} style={{ marginLeft: '1rem' }}>Blog</a>
-          <a href="/projects" style={{ marginLeft: '1rem' }} className={navLink}>Projects</a>
+          {/* <a href="/projects" style={{ marginLeft: '1rem' }} className={navLink}>Projects</a> */}
           <a href="https://github.com/fahadahmed" style={{ marginLeft: '1rem' }} className={navLink}>GitHub</a>
           <a href="mailto:fahad.ahmed@me.com" style={{ marginLeft: '1rem' }} className={navLink}>Contact</a>
         </div>
