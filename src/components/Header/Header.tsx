@@ -24,7 +24,8 @@ const navLink = css({
   fontFamily: 'inter',
 
   '&:hover': {
-    textDecoration: 'underline'
+    paddingBottom: '0.5rem',
+    borderBottom: '2px solid #FFCD41'
   }
 });
 
@@ -36,21 +37,21 @@ function Header() {
           <Image src={Logo} alt="logo" width="60" height="62" />
           <h1 className={heading}>Fahad Ahmed</h1>
         </div>
+      </div>
+      <div style={{ display: 'grid', gap: '1rem', alignItems: 'center', gridTemplateColumns: '1fr auto' }}>
         <div>
           <a href="/" className={navLink}>Home</a>
-          <a href="/about" className={navLink} style={{ marginLeft: '1rem' }}>About Me</a>
+          {/* <a href="/about" className={navLink} style={{ marginLeft: '1rem' }}>About Me</a> */}
           <a href="/blog" className={navLink} style={{ marginLeft: '1rem' }}>Blog</a>
           {/* <a href="/projects" style={{ marginLeft: '1rem' }} className={navLink}>Projects</a> */}
           <a href="https://github.com/fahadahmed" style={{ marginLeft: '1rem' }} className={navLink}>GitHub</a>
           <a href="mailto:fahad.ahmed@me.com" style={{ marginLeft: '1rem' }} className={navLink}>Contact</a>
         </div>
-      </div>
-      <div>
-        <a href="#">
+        {/* <a href="#">
           <div className={IconButton}>
             <Image src={MoonIcon} alt="toggle theme" width="24" height="24" />
           </div>
-        </a>
+        </a> */}
 
       </div>
     </header>

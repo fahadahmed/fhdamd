@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client'
-import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr'
 import { css } from '../../styled-system/css'
 import NewsletterForm from '@/components/NewsletterForm/NewsletterForm'
 import { getClient } from '@/libs/client'
@@ -99,6 +98,7 @@ const issueNumber = css({
 export default async function Home() {
   const { data } = await getClient().query({ query });
   const posts = data.issues.data[0].attributes.posts.data;
+  const issue = data.issues.data[0].attributes;
   return (
     <div className={container}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginTop: '2rem' }}>
@@ -111,11 +111,14 @@ export default async function Home() {
           <NewsletterForm />
         </div>
         <div className={issueContainer}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>Latest Issue</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+            <div>
+              <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>{issue.name}</h2>
+              <p style={{ fontWeight: '300', fontSize: '1.25rem' }}>{issue.description}</p>
+            </div>
             <div className={issueStamp}>
               <div style={{ fontSize: '16px', fontWeight: 'bold' }}>ISSUE</div>
-              <div className={issueNumber}>No. 1</div>
+              <div className={issueNumber}>#{issue.number}</div>
             </div>
           </div>
           {posts.map((post: any) => (

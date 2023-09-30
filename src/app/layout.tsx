@@ -20,7 +20,7 @@ const containerStyles = css({
 const appContainer = css({
   height: '100vh',
   display: 'grid',
-  gridTemplateRows: 'auto 1fr auto'
+  gridTemplateRows: 'auto 1fr auto',
 })
 
 export default function RootLayout({
