@@ -34,6 +34,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# firebase
 .firebase/
+firestore-debug.log
+functions/firestore-debug.log
+functions/src/.env
+functions/ui-debug.log
+ui-debug.log
+
 
 storybook-static/

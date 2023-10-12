@@ -96,9 +96,22 @@ const issueNumber = css({
 
 
 export default async function Home() {
-  const { data } = await getClient().query({ query });
+  const { data } = await getClient().query({
+    query,
+    context: {
+      next: {
+        revalidate: true
+      }
+    }
+  });
   const posts = data.issues.data[0].attributes.posts.data;
   const issue = data.issues.data[0].attributes;
+
+  async function subscribe() {
+    'use server'
+    // connect to the firebase function addSubscriber
+    // send the form data
+  }
   return (
     <div className={container}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginTop: '2rem' }}>
@@ -108,7 +121,9 @@ export default async function Home() {
             <p className={content}>Welcome to my website.</p>
             <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
           </div>
-          <NewsletterForm />
+          <form action={subscribe} method="POST">
+            <NewsletterForm />
+          </form>
         </div>
         <div className={issueContainer}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>

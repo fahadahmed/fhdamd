@@ -14,6 +14,7 @@ const newsletterContent = css({
   fontWeight: '300',
 })
 
+
 export default function NewsletterForm() {
 
   return (
@@ -24,7 +25,7 @@ export default function NewsletterForm() {
         <TextInput placeholderText="Your name" inputType="text" onChange={(value: string) => console.log(value)} />
         <TextInput placeholderText="Email address" inputType="text" onChange={(value: string) => console.log(value)} />
       </div>
-      <Button label="Subscribe to newsletter" onClick={() => console.log('Function not implemented')} />
+      <Button label="Subscribe to newsletter" onClick={() => console.log('Function not implemented')} type="submit" />
     </div>
   )
 }

@@ -21,11 +21,12 @@ const styles = css({
 type ButtonProps = {
   label: string;
   onClick: () => void;
+  type?: 'button' | 'submit' | 'reset';
 
 }
 
-function Button({ label, onClick }: ButtonProps) {
-  return <button className={styles} onClick={onClick}>{label}</button>;
+function Button({ label, onClick, type }: ButtonProps) {
+  return <button className={styles} onClick={onClick} type={type || "button"}>{label}</button>;
 }
 
 export default Button;
