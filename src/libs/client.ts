@@ -10,6 +10,9 @@ export const { getClient } = registerApolloClient(() => {
     cache: new NextSSRInMemoryCache(),
     link: new HttpLink({
       uri: 'https://fhdamd-blog-production.up.railway.app/graphql',
+      fetchOptions: {
+        cache: 'no-store',
+      },
     }),
   });
 });
