@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client'
+import { marked } from 'marked';
 import { css } from '../../../../styled-system/css'
 import { getClient } from '@/libs/client'
 import { Tag } from '@/components';
@@ -37,6 +38,7 @@ const postTitle = css({
   fontSize: '3rem',
   fontWeight: '700'
 })
+
 export default async function Page({ params }: PagepProps) {
   const { slug } = params;
   const { data } = await getClient().query({
@@ -54,7 +56,7 @@ export default async function Page({ params }: PagepProps) {
             <Tag key={tag.id} label={tag.attributes.title} />
           ))}
         </div>
-        <p style={{ fontSize: '1.25rem' }}>{post.content}</p>
+        <div dangerouslySetInnerHTML={{ __html: marked(post.content) }}></div>
       </div>
     </div>
   )

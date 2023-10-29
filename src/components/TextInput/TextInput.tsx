@@ -17,9 +17,10 @@ type TextInputProps = {
   onChange: (value: string) => void;
   placeholderText?: string;
   inputType?: 'text' | 'password' | 'email' | 'number';
+  name?: string
 }
-export default function TextInput({ onChange, placeholderText, inputType = 'text' }: TextInputProps) {
+export default function TextInput({ onChange, placeholderText, inputType = 'text', name }: TextInputProps) {
   return (
-    <input type={inputType} className={styles} placeholder={placeholderText} onBlur={(e) => onChange(e.target.value)} />
+    <input type={inputType} className={styles} placeholder={placeholderText} onBlur={(e) => onChange(e.target.value)} name={name} />
   )
 }

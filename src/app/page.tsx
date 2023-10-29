@@ -107,10 +107,11 @@ export default async function Home() {
   const posts = data.issues.data[0].attributes.posts.data;
   const issue = data.issues.data[0].attributes;
 
-  async function subscribe() {
+  async function subscribe(formData: FormData) {
     'use server'
     // connect to the firebase function addSubscriber
     // send the form data
+    console.log('The action is working', formData.get('name'), formData.get('email'))
   }
   return (
     <div className={container}>

@@ -20,6 +20,8 @@ import * as functions from 'firebase-functions';
 
 export const helloWorld = functions.https.onRequest((request, response) => {
   functions.logger.info('Hello logs!', { structuredData: true });
+  console.log(process.env.MAILCHIMP_API_KEY);
+  console.log(process.env.MAILCHIMP_LIST_ID);
   response.send('Hello from Firebase!');
 });
 
