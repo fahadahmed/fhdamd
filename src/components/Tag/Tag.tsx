@@ -10,6 +10,7 @@ const styles = css({
   padding: '0.25rem 0.5rem',
   textTransform: 'uppercase',
   margin: '0.25rem',
+  display: 'inline-block',
   // '&:hover': {
   //   backgroundColor: '#ffcd41',
   //   cursor: 'pointer'

@@ -4,7 +4,7 @@ const styles = css({
   display: 'grid',
   width: '100%',
   gridAutoRows: 'minmax(20rem, max-content)',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(20rem, 1fr))',
   gap: '1rem',
   padding: '0'
 });
