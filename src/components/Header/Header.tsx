@@ -7,6 +7,10 @@ const heading = css({
   fontSize: '24px',
   fontWeight: 'bold',
   fontFamily: 'inter',
+  display: 'none',
+  md: {
+    display: 'block'
+  }
 });
 
 const IconButton = css({
@@ -19,26 +23,54 @@ const IconButton = css({
 });
 
 const navLink = css({
-  fontSize: '16px',
-  fontWeight: 'normal',
-  fontFamily: 'inter',
+  fontWeight: 'bold',
+  md: {
+    fontSize: '16px',
+    fontWeight: 'normal',
+    fontFamily: 'inter',
 
-  '&:hover': {
-    paddingBottom: '0.5rem',
-    borderBottom: '2px solid #FFCD41'
+    '&:hover': {
+      paddingBottom: '0.5rem',
+      borderBottom: '2px solid #FFCD41'
+    }
   }
 });
 
+const headerContainer = css({
+  display: 'grid',
+  padding: '0 1rem',
+  md: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '1rem 2rem',
+  }
+});
+
+const navContainer = css({
+  background: '#FBFBFB',
+  padding: '0.5rem',
+  marginTop: '1rem',
+  md: {
+    display: 'grid',
+    gap: '1rem',
+    alignItems: 'center',
+    gridTemplateColumns: '1fr auto',
+    background: 'none',
+    padding: '0',
+    marginTop: '0'
+  }
+})
 function Header() {
   return (
-    <header style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <header className={headerContainer}>
       <div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Image src={Logo} alt="logo" width="60" height="62" />
           <h1 className={heading}>Fahad Ahmed</h1>
         </div>
       </div>
-      <div style={{ display: 'grid', gap: '1rem', alignItems: 'center', gridTemplateColumns: '1fr auto' }}>
+      <div className={navContainer}>
         <div>
           <a href="/" className={navLink}>Home</a>
           {/* <a href="/about" className={navLink} style={{ marginLeft: '1rem' }}>About Me</a> */}
