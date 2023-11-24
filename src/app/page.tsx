@@ -51,6 +51,12 @@ const container = css({
   color: '#41424D',
   fontWeight: 'light',
   display: 'grid',
+  marginTop: '2rem',
+  gap: '4rem',
+
+  md: {
+    gridTemplateColumns: '1fr 1fr',
+  }
 })
 const title = css({
   fontFamily: 'inter',
@@ -66,13 +72,18 @@ const content = css({
 })
 
 const issueContainer = css({
+  margin: '2rem 0',
   background: '#FBFBFB',
   color: '#41424D',
-  margin: '4rem 0 0 4rem',
-  padding: '2rem',
-  fontFamily: 'inter',
-  fontSize: '20px',
-  fontWeight: '100',
+  padding: '1rem',
+  md: {
+
+    margin: '4rem 0 0 4rem',
+    padding: '2rem',
+    fontFamily: 'inter',
+    fontSize: '20px',
+    fontWeight: '100',
+  }
 })
 
 const issueStamp = css({
@@ -115,34 +126,32 @@ export default async function Home() {
   }
   return (
     <div className={container}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginTop: '2rem' }}>
+      <div>
         <div>
+          <h1 className={title}>Hello, I&apos;m Fahad.</h1>
+          <p className={content}>Welcome to my website.</p>
+          <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
+        </div>
+        <form action={subscribe} method="POST">
+          <NewsletterForm />
+        </form>
+      </div>
+      <div className={issueContainer}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
           <div>
-            <h1 className={title}>Hello, I&apos;m Fahad.</h1>
-            <p className={content}>Welcome to my website.</p>
-            <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
+            <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>{issue.name}</h2>
+            <p style={{ fontWeight: '300', fontSize: '1.25rem' }}>{issue.description}</p>
           </div>
-          <form action={subscribe} method="POST">
-            <NewsletterForm />
-          </form>
-        </div>
-        <div className={issueContainer}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-            <div>
-              <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>{issue.name}</h2>
-              <p style={{ fontWeight: '300', fontSize: '1.25rem' }}>{issue.description}</p>
-            </div>
-            <div className={issueStamp}>
-              <div style={{ fontSize: '16px', fontWeight: 'bold' }}>ISSUE</div>
-              <div className={issueNumber}>#{issue.number}</div>
-            </div>
+          <div className={issueStamp}>
+            <div style={{ fontSize: '16px', fontWeight: 'bold' }}>ISSUE</div>
+            <div className={issueNumber}>#{issue.number}</div>
           </div>
-          {posts.map((post: any) => (
-            <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem', fontSize: '1.5rem', fontWeight: 'normal' }}>
-              <a href={`blog/${post.attributes.slug}`}><h3 className={issueLink}>{post.attributes.title}</h3></a>
-            </div>
-          ))}
         </div>
+        {posts.map((post: any) => (
+          <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem', fontSize: '1.5rem', fontWeight: 'normal' }}>
+            <a href={`blog/${post.attributes.slug}`}><h3 className={issueLink}>{post.attributes.title}</h3></a>
+          </div>
+        ))}
       </div>
     </div>
   )
