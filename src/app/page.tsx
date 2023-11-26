@@ -54,7 +54,7 @@ const container = css({
   marginTop: '2rem',
   gap: '4rem',
 
-  md: {
+  lg: {
     gridTemplateColumns: '1fr 1fr',
   }
 })
@@ -76,7 +76,7 @@ const issueContainer = css({
   background: '#FBFBFB',
   color: '#41424D',
   padding: '1rem',
-  md: {
+  lg: {
 
     margin: '4rem 0 0 4rem',
     padding: '2rem',
