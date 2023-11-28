@@ -4,21 +4,25 @@
    h1 {
       font-weight: bold;
       font-size: 3rem;
+      color: #41424D;
       /* margin: 0 0 2rem 0; */
    }
    h2 {
       font-weight: bold;
       font-size: 2rem;
       margin: 1rem 0;
+      color: #41424D;
    }
    p {
       font-size: 1.25rem;
       margin: 1rem 0;
+      color: #41424D;
    }
    ol {
       list-style-type: decimal;
       list-style-position: inside;
       font-size: 1.25rem;
+      color: #41424D;
    }
    code {
       background: #efefef;

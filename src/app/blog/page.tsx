@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { Grid, Card } from "@/components";
 import { getClient } from '@/libs/client'
+import { css } from '../../../styled-system/css';
 
 const query = gql`
   query {
@@ -47,6 +48,18 @@ const query = gql`
   }
 `;
 
+const pageHeading = css({
+  fontFamily: 'inter',
+  fontSize: '2rem',
+  fontWeight: '600',
+  color: '#41424D',
+  padding: '2rem 0',
+  lg: {
+    fontSize: '3rem',
+    fontWeight: '700'
+  }
+})
+
 export default async function Home() {
 
   const { data } = await getClient().query({
@@ -58,12 +71,10 @@ export default async function Home() {
     }
   });
 
-  console.log(data);
   const issues = data.issues.data;
-  console.log(issues);
   return (
     <div>
-      <h1>My blog</h1>
+      <h1 className={pageHeading}>My blog</h1>
       <Grid>
         {issues.map((issue: any) => (
           <Card

@@ -100,11 +100,18 @@ const issueStamp = css({
 
 const issueLink = css({
   font: 'inter',
-  fontSize: '24px',
-  fontWeight: '300',
+  fontSize: '1rem',
   '&:hover': {
     fontWeight: 'bold',
+  },
+  gridArea: 'issueStamp',
+  lg: {
+    fontSize: '1.5rem',
   }
+})
+
+const issueMeta = css({
+  gridArea: 'issueMeta',
 })
 
 const issueNumber = css({
@@ -112,10 +119,30 @@ const issueNumber = css({
 });
 
 const issueHeaderContainer = css({
-  display: 'flex',
-  justifyContent: 'space-between',
-  gap: '1rem',
-  alignItems: 'start'
+  display: 'grid',
+  gridTemplateAreas:
+    `"issueStamp . . ."
+    "issueMeta issueMeta issueMeta issueMeta"`,
+  gridTemplateColumns: '1fr 1fr 1fr 1fr',
+  lg: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    gap: '1rem',
+    alignItems: 'start'
+  }
+});
+
+const postItem = css({
+  borderBottom: '1px solid #E1DEDE',
+  fontWeight: 'bold',
+  padding: '1rem 0',
+  fontSize: '1rem',
+  lg: {
+    fontWeight: 'normal',
+    paddingBottom: '2rem',
+    paddingTop: '2rem',
+    fontSize: '1.5rem',
+  }
 })
 
 
@@ -151,7 +178,7 @@ export default async function Home() {
       </div>
       <div className={issueContainer}>
         <div className={issueHeaderContainer}>
-          <div>
+          <div className={issueMeta}>
             <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>{issue.name}</h2>
             <p style={{ fontWeight: '300', fontSize: '1.25rem' }}>{issue.description}</p>
           </div>
@@ -161,7 +188,7 @@ export default async function Home() {
           </div>
         </div>
         {posts.map((post: any) => (
-          <div key={post.id} style={{ borderBottom: '1px solid #E1DEDE', paddingBottom: '2rem', paddingTop: '2rem', fontSize: '1.5rem', fontWeight: 'normal' }}>
+          <div key={post.id} className={postItem}>
             <a href={`blog/${post.attributes.slug}`}><h3 className={issueLink}>{post.attributes.title}</h3></a>
           </div>
         ))}

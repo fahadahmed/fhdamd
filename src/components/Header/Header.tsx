@@ -24,6 +24,7 @@ const IconButton = css({
 
 const navLink = css({
   fontWeight: 'bold',
+  color: '#41424D',
   md: {
     fontSize: '16px',
     fontWeight: 'normal',

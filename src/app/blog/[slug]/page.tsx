@@ -56,7 +56,6 @@ export default async function Page({ params }: PagepProps) {
     query,
     variables: { slug },
   });
-  console.log(data.posts.data[0].attributes);
   const post = data.posts.data[0].attributes;
   return (
     <div className={postContainer}>
