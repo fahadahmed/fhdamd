@@ -60,15 +60,21 @@ const container = css({
 })
 const title = css({
   fontFamily: 'inter',
-  fontSize: '64px',
-  fontWeight: '700'
+  fontWeight: '700',
+  lg: {
+    fontSize: '4rem',
+  }
 })
 
 const content = css({
   fontFamily: 'inter',
-  fontSize: '24px',
   fontWeight: '300',
-  paddingTop: '2rem'
+  fontSize: '1.25rem',
+  lg: {
+
+    fontSize: '1.5rem',
+    paddingTop: '2rem'
+  }
 })
 
 const issueContainer = css({
@@ -102,7 +108,14 @@ const issueLink = css({
 })
 
 const issueNumber = css({
-  fontSize: '48px', fontWeight: '700', fontFamily: 'knewave'
+  fontSize: '48px', fontWeight: '700', fontFamily: 'inter'
+});
+
+const issueHeaderContainer = css({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '1rem',
+  alignItems: 'start'
 })
 
 
@@ -137,7 +150,7 @@ export default async function Home() {
         </form>
       </div>
       <div className={issueContainer}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+        <div className={issueHeaderContainer}>
           <div>
             <h2 style={{ fontWeight: 'bold', fontSize: '32px' }}>{issue.name}</h2>
             <p style={{ fontWeight: '300', fontSize: '1.25rem' }}>{issue.description}</p>

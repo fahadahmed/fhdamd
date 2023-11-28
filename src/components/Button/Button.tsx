@@ -16,6 +16,10 @@ const styles = css({
     color: 'primary',
     cursor: 'pointer'
   },
+  width: '100%',
+  lg: {
+    width: 'auto'
+  }
 });
 
 type ButtonProps = {

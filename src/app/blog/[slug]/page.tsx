@@ -35,9 +35,20 @@ type PagepProps = {
 
 const postTitle = css({
   fontFamily: 'inter',
-  fontSize: '3rem',
-  fontWeight: '700'
+  fontSize: '2rem',
+  fontWeight: '600',
+  lg: {
+    fontSize: '3rem',
+    fontWeight: '700'
+  }
 })
+
+const postContainer = css({
+  padding: '0',
+  lg: {
+    padding: '2rem'
+  }
+});
 
 export default async function Page({ params }: PagepProps) {
   const { slug } = params;
@@ -48,7 +59,7 @@ export default async function Page({ params }: PagepProps) {
   console.log(data.posts.data[0].attributes);
   const post = data.posts.data[0].attributes;
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className={postContainer}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <h1 className={postTitle}>{post.title}</h1>
         <div style={{ margin: '2rem 0', borderTop: '1px solid #efefef', borderBottom: '1px solid #efefef', padding: '1rem 0' }}>
