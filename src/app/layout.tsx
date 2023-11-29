@@ -1,7 +1,7 @@
 import './index.css'
 import { Inter } from 'next/font/google'
 import { Knewave } from 'next/font/google'
-import { Header, Footer } from '@/components'
+import { Header, Footer, FirebaseAnalytics } from '@/components'
 import { css } from '../../styled-system/css'
 
 
@@ -31,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className} ${knewave.className}`}>
       <body className={`${appContainer}`}>
+        <FirebaseAnalytics />
         <Header />
         <main className={containerStyles}>{children}</main>
         <Footer />

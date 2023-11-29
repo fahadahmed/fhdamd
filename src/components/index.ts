@@ -5,3 +5,4 @@ export { default as TextInput } from './TextInput';
 export { default as Tag } from './Tag';
 export { default as Grid } from './Grid';
 export { default as Card } from './Card';
+export { default as FirebaseAnalytics } from './FirebaseAnalytics';

@@ -60,6 +60,10 @@ const pageHeading = css({
   }
 })
 
+export const metadata = {
+  title: 'Fahad Ahmed | Blog',
+  description: 'Software Engineer based in Melbourne, Australia',
+}
 export default async function Home() {
 
   const { data } = await getClient().query({
