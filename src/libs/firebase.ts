@@ -1,20 +1,20 @@
-import { initializeApp } from 'firebase/app';
+import { FirebaseApp, initializeApp } from 'firebase/app';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCmYHBdkO5iv4gRhh-BA4UPtDHlDy0H_MM',
-  authDomain: 'fahad-web.firebaseapp.com',
-  databaseURL: 'https://fahad-web.firebaseio.com',
-  projectId: 'fahad-web',
-  storageBucket: 'fahad-web.appspot.com',
-  messagingSenderId: '779157276706',
-  appId: '1:779157276706:web:ef20e27ff0d38b5643e27b',
-  measurementId: 'G-67E540H3JX',
+  apiKey: process.env.NEXT_PUBLIC_FB_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_FB_AUTHDOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FB_DATABASEURL,
+  projectId: process.env.NEXT_PUBLIC_FB_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_FB_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FB_MESSAGINGSENDERID,
+  appId: process.env.NEXT_PUBLIC_FB_APPID,
+  measurementId: process.env.NEXT_PUBLIC_FB_MEASUREMENTID,
 };
-let app, analytics: any;
+let app: FirebaseApp | undefined, analytics: any;
 if (typeof window !== undefined) {
   app = initializeApp(firebaseConfig);
-  analytics = isSupported().then((yes) => (yes ? getAnalytics() : null));
+  analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
 }
 
 export { app, analytics };
