@@ -27,7 +27,7 @@ const query = gql`
   }
 `;
 
-type PagepProps = {
+type PageProps = {
   params: {
     slug: string;
   }
@@ -50,7 +50,20 @@ const postContainer = css({
   }
 });
 
-export default async function Page({ params }: PagepProps) {
+export async function generateMetadata(
+  { params }: PageProps) {
+  const slug = params.slug;
+  const { data } = await getClient().query({
+    query,
+    variables: { slug },
+  });
+  const post = data.posts.data[0].attributes;
+  return {
+    title: post.title
+  };
+}
+
+export default async function Page({ params }: PageProps) {
   const { slug } = params;
   const { data } = await getClient().query({
     query,
