@@ -169,7 +169,7 @@ export default async function Home() {
       <div>
         <div>
           <h1 className={title}>Hello, I&apos;m Fahad.</h1>
-          <p className={content}>Welcome to my website.</p>
+          <p className={content}>Welcome to my website <small>(currently in development)</small>.</p>
           <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
         </div>
         <form action={subscribe} method="POST">
