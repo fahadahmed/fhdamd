@@ -1,4 +1,8 @@
 'use client'
+import {
+  experimental_useFormStatus as useFormStatus,
+  experimental_useFormState as useFormState,
+} from 'react-dom'
 import { css } from '../../../styled-system/css'
 import { Button, TextInput } from '@/components'
 
@@ -26,6 +30,9 @@ const newsletterFormContainer = css({
 
 
 export default function NewsletterForm() {
+  const status = useFormStatus();
+
+  console.log('Pending', status);
 
   return (
     <div style={{ marginTop: '2rem' }}>

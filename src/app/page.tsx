@@ -1,4 +1,6 @@
 import { gql } from '@apollo/client'
+import { NextResponse } from 'next/server'
+import { z } from 'zod'
 import { css } from '../../styled-system/css'
 import NewsletterForm from '@/components/NewsletterForm/NewsletterForm'
 import { getClient } from '@/libs/client'
@@ -145,8 +147,13 @@ const postItem = css({
   }
 })
 
+const schema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email'),
+})
 
 export default async function Home() {
+
   const { data } = await getClient().query({
     query,
     context: {
@@ -158,12 +165,20 @@ export default async function Home() {
   const posts = data.issues.data[0].attributes.posts.data;
   const issue = data.issues.data[0].attributes;
 
-  async function subscribe(formData: FormData) {
+  const subscribe = async (formData: FormData) => {
     'use server'
     // connect to the firebase function addSubscriber
     // send the form data
-    console.log('The action is working', formData.get('name'), formData.get('email'))
+    const response = await fetch('https://addsubscriber-ji5xummm4q-uc.a.run.app', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName: formData.get('name'),
+        email: formData.get('email')
+      })
+    });
+    console.log(response);
   }
+
   return (
     <div className={container}>
       <div>
