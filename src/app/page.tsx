@@ -170,11 +170,12 @@ export default async function Home() {
         <div>
           <h1 className={title}>Hello, I&apos;m Fahad.</h1>
           <p className={content}>Welcome to my website <small>(currently in development)</small>.</p>
-          <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Frontend Manager at Ernst & Young (EY).</p>
+          <p className={content}>I am a software engineer based in Melbourne, Australia. I build web & mobile apps and websites using serverless tech stacks. I currently work as a Full-stack Engineering Manager at Ernst & Young (EY) where I work on various client projects involving delivery of cloud native solutions using the best in class web technologies.</p>
+          <p className={content}>I have experience in delivering highly sophisticated web applications and systems in space technologies, financial industries as well as retail. I build solutions using the React ecosystem, GraphQL, Node.js, .NET (C#) and clouds like Azure, Firebase and GCP.</p>
         </div>
-        <form action={subscribe} method="POST">
+        {/* <form action={subscribe} method="POST">
           <NewsletterForm />
-        </form>
+        </form> */}
       </div>
       <div className={issueContainer}>
         <div className={issueHeaderContainer}>
